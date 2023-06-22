@@ -1,25 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <title>Rock Paper Scissors</title>
-</head>
-<body>
-    <h1>Rock, paper, scissors</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/74.svg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <title>R-P-S-L-S</title>
+  </head>
+  <body>
+    <h1>Rock, Paper, Scissors, Lizard, Spock</h1>
 
-    <h2>Computer choice: <span id="computer-choice"></span></h2>
-    <h2>User choice: <span id="user-choice"></span></h2>
-    <h2>Result: <span id="result"></span></h2>
+    <p>
+      Info: <i class="fa fa-hand-scissors-o"></i> cuts
+      <i class="fa fa-hand-paper-o"></i> |
+      <i class="fa fa-hand-paper-o"></i> covers
+      <i class="fa fa-hand-rock-o"></i> |
+      <i class="fa fa-hand-rock-o"></i> crushes
+      <i class="fa fa-hand-lizard-o"></i> |
+      <i class="fa fa-hand-lizard-o"></i> poisons
+      <i class="fa fa-hand-spock-o"></i> |
+      <i class="fa fa-hand-spock-o"></i> smashes
+      <i class="fa fa-hand-scissors-o"></i> |
+      <i class="fa fa-hand-scissors-o"></i> decapitates
+      <i class="fa fa-hand-lizard-o"></i> |
+      <i class="fa fa-hand-lizard-o"></i> eats
+      <i class="fa fa-hand-paper-o"></i> |
+      <i class="fa fa-hand-paper-o"></i> disproves
+      <i class="fa fa-hand-spock-o"></i> |
+      <i class="fa fa-hand-spock-o"></i> vaporizes
+      <i class="fa fa-hand-rock-o"></i> |
+      <i class="fa fa-hand-rock-o"></i> crushes
+      <i class="fa fa-hand-scissors-o"></i>.
+    </p>
 
-    <button id="rock">Rock</button>
-    <button id="paper">Paper</button>
-    <button id="scissors">Scissors</button>
-    <button id="lizard">Lizard</button>
-    <button id="spock">Spock</button>
+    <div id="board">
+      <div>
+        <i class="fa fa-user fa-4x"></i>
+        <button>
+          <i id="rock" class="fa fa-hand-rock-o fa-3x">Rock</i>
+        </button>
+        <button>
+          <i id="paper" class="fa fa-hand-paper-o fa-3x">Paper</i>
+        </button>
+        <button>
+          <i id="scissors" class="fa fa-hand-scissors-o fa-3x">Scissors</i>
+        </button>
+        <button>
+          <i id="lizard" class="fa fa-hand-lizard-o fa-3x">Lizard</i>
+        </button>
+        <button>
+          <i id="spock" class="fa fa-hand-spock-o fa-3x">Spock</i>
+        </button>
+        <h2>User choice: <span id="user-choice"></span></h2>
+      </div>
+      <div>
+        <i class="fa fa-laptop fa-4x"></i>
+        <i class="fa fa-hand-rock-o fa-3x">Rock</i>
+        <i class="fa fa-hand-paper-o fa-3x">Paper</i>
+        <i class="fa fa-hand-scissors-o fa-3x">Scissors</i>
+        <i class="fa fa-hand-lizard-o fa-3x">Lizard</i>
+        <i class="fa fa-hand-spock-o fa-3x">Spock</i>
+        <h2>Computer choice: <span id="computer-choice"></span></h2>
+      </div>
+      <div>
+        <h2>Game: ... vs ...</h2>
+        <h2>Result: <span id="result"></span></h2>
+      </div>
+    </div>
 
     <script src="./script.js" charset="UTF-8"></script>
-</body>
+  </body>
 </html>
