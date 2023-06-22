@@ -24,8 +24,14 @@ function generateComputerChoice() {
         case 1:
             computerChoice = "paper";
             break;
-        default:
+        case 2:
             computerChoice = "scissors";
+            break;
+        case 3:
+            computerChoice = "lizard";
+            break;
+        case 4:
+            computerChoice = "spock";
     }
     $computerChoiceDisplay.innerHTML = computerChoice;
 }
@@ -36,11 +42,25 @@ function getResult() {
         $resultDisplay.innerHTML = result;
         return;
     }
-    const userWinningPattern = {
-        rock: "scissors",
-        paper: "rock",
-        scissors: "paper",
+
+    let userIsWinner = false;
+    switch(userChoice) {
+        case "rock":
+            if (computerChoice === "scissors" || computerChoice === "lizard") userIsWinner = true;
+            break;
+        case "paper":
+            if (computerChoice === "rock" || computerChoice === "spock") userIsWinner = true;
+            break;
+        case "scissors":
+            if (computerChoice === "paper" || computerChoice === "lizard") userIsWinner = true;
+            break;
+        case "lizard":
+            if (computerChoice === "spock" || computerChoice === "paper") userIsWinner = true;
+            break;
+        case "spock":
+            if (computerChoice === "rock" || computerChoice === "scissors") userIsWinner = true;
     }
-    result = userWinningPattern[userChoice] === computerChoice ? "You won!" : "Computer won!";
+
+    result = userIsWinner ? "You won!" : "Computer won!";
     $resultDisplay.innerHTML = result;
 }
