@@ -1,8 +1,12 @@
-const $computerChoiceDisplay = document.getElementById("computer-choice");
-const $userChoiceDisplay = document.getElementById("user-choice");
-const $resultDisplay = document.getElementById("result");
+const $userChoiceText = document.getElementById("user-choice-text");
+const $computerChoiceText = document.getElementById("computer-choice-text");
+
+const $userChoiceIcon = document.getElementById("user-choice-display");
+const $computerChoiceIcon = document.getElementById("computer-choice-display");
 
 const $possibleChoices = document.querySelectorAll("button");
+
+const $resultDisplay = document.getElementById("result");
 
 let userChoice;
 let computerChoice;
@@ -10,8 +14,10 @@ let result;
 
 $possibleChoices.forEach(choice => choice.addEventListener("click", (evt) => {
     userChoice = evt.target.id;
-    $userChoiceDisplay.innerHTML = userChoice;
+    evt.target.classList.add("active");
+    $userChoiceText.innerHTML = userChoice[0].toUpperCase() + userChoice.slice(1);
     generateComputerChoice();
+    displayGameChoices();
     getResult();
 }))
 
@@ -33,12 +39,18 @@ function generateComputerChoice() {
         case 4:
             computerChoice = "spock";
     }
-    $computerChoiceDisplay.innerHTML = computerChoice;
+    document.getElementById(`pc-${computerChoice}`).classList.add("active");
+    $computerChoiceText.innerHTML = computerChoice[0].toUpperCase() + computerChoice.slice(1);
+}
+
+function displayGameChoices() {
+    $userChoiceIcon.innerHTML = `<i class="fa fa-hand-${userChoice}-o fa-2x"></i>`;
+    $computerChoiceIcon.innerHTML = `<i class="fa fa-hand-${computerChoice}-o fa-2x"></i>`;
 }
 
 function getResult() {
     if (computerChoice === userChoice) {
-        result = "Draw";
+        result = "Draw!";
         $resultDisplay.innerHTML = result;
         return;
     }
@@ -60,6 +72,10 @@ function getResult() {
         case "spock":
             if (computerChoice === "rock" || computerChoice === "scissors") userIsWinner = true;
     }
+    
+    let $info = document.getElementById(`${userChoice}-${computerChoice}`);
+    if (!$info) $info = document.getElementById(`${computerChoice}-${userChoice}`);
+    $info.classList.add("active");
 
     result = userIsWinner ? "You won!" : "Computer won!";
     $resultDisplay.innerHTML = result;

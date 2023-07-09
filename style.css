@@ -111,12 +111,21 @@ button > * {
 .fake-button {
     border: 2px solid var(--grey-2);
     padding: 7.5px;
+    cursor: default;
 }
 
 button:hover, button:hover > * {
     cursor: pointer;
     background-color: var(--grey-4);
     color: var(--white);
+}
+
+h2.game {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
 }
 
 /* To add to <i> selected */

@@ -21,43 +21,43 @@
 
     <p>
       <span>Info: </span>
-      <span>
+      <span id="scissors-paper">
         <i class="fa fa-hand-scissors-o"></i> cuts
         <i class="fa fa-hand-paper-o"></i>
       </span>
-      <span>
+      <span id="paper-rock">
         <i class="fa fa-hand-paper-o"></i> covers
         <i class="fa fa-hand-rock-o"></i>
       </span>
-      <span>
+      <span id="rock-lizard">
         <i class="fa fa-hand-rock-o"></i> crushes
         <i class="fa fa-hand-lizard-o"></i>
       </span>
-      <span>
+      <span id="lizard-spock">
         <i class="fa fa-hand-lizard-o"></i> poisons
         <i class="fa fa-hand-spock-o"></i>
       </span>
-      <span>
+      <span id="spock-scissors">
         <i class="fa fa-hand-spock-o"></i> smashes
         <i class="fa fa-hand-scissors-o"></i>
       </span>
-      <span>
+      <span id="scissors-lizard">
         <i class="fa fa-hand-scissors-o"></i> decapitates
         <i class="fa fa-hand-lizard-o"></i>
       </span>
-      <span>
+      <span id="lizard-paper">
         <i class="fa fa-hand-lizard-o"></i> eats
         <i class="fa fa-hand-paper-o"></i>
       </span>
-      <span>
+      <span id="paper-spock">
         <i class="fa fa-hand-paper-o"></i> disproves
         <i class="fa fa-hand-spock-o"></i>
       </span>
-      <span>
+      <span id="spock-rock">
         <i class="fa fa-hand-spock-o"></i> vaporizes
         <i class="fa fa-hand-rock-o"></i>
       </span>
-      <span>
+      <span id="rock-scissors">
         <i class="fa fa-hand-rock-o"></i> crushes
         <i class="fa fa-hand-scissors-o"></i>.
       </span>
@@ -86,27 +86,30 @@
               <i id="spock" class="fa fa-hand-spock-o"> Spock</i>
             </button>
           </div>
-          <h2>User choice: <span id="user-choice">...</span></h2>
+          <h2>User choice: <span id="user-choice-text"><i class="fa fa-spinner fa-pulse"></i></span></h2>
         </div>
         <div class="section">
           <div class="avatar">
             <i class="fa fa-laptop fa-5x"></i>
           </div>
           <div class="btn-container">
-            <i class="fake-button fa fa-hand-rock-o"> Rock</i>
-            <i class="fake-button fa fa-hand-paper-o"> Paper</i>
-            <i class="fake-button fa fa-hand-scissors-o"> Scissors</i>
-            <i class="fake-button fa fa-hand-lizard-o"> Lizard</i>
-            <i class="fake-button fa fa-hand-spock-o"> Spock</i>
+            <i id="pc-rock" class="fake-button fa fa-hand-rock-o"> Rock</i>
+            <i id="pc-paper" class="fake-button fa fa-hand-paper-o"> Paper</i>
+            <i id="pc-scissors" class="fake-button fa fa-hand-scissors-o"> Scissors</i>
+            <i id="pc-lizard" class="fake-button fa fa-hand-lizard-o"> Lizard</i>
+            <i id="pc-spock" class="fake-button fa fa-hand-spock-o"> Spock</i>
           </div>
-          <h2>Computer choice: <span id="computer-choice">...</span></h2>
+          <h2>Computer choice: <span id="computer-choice-text"><i class="fa fa-spinner fa-pulse"></i></span></h2>
         </div>
       </div>
 
       <div class="section">
-        <h2>Game: ... vs ...</h2>
-        <i class="fa fa-spinner fa-pulse fa-4x"></i>
-        <h2>Result: <span id="result"></span></h2>
+        <h2 class="game">
+          <span id="user-choice-display"><i class="fa fa-spinner fa-pulse"></i></span>
+          <span>vs</span> 
+          <span id="computer-choice-display"><i class="fa fa-spinner fa-pulse"></i></span>
+        </h2>
+        <h2>Result: <span id="result"><i class="fa fa-question"></i></span></h2>
       </div>
     </div>
 
