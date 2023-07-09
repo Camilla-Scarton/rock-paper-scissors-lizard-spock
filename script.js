@@ -5,12 +5,18 @@ const $userChoiceIcon = document.getElementById("user-choice-display");
 const $computerChoiceIcon = document.getElementById("computer-choice-display");
 
 const $possibleChoices = document.querySelectorAll("button");
+const $pcFakeBtns = document.querySelectorAll(".fake-button");
+const $infos = document.querySelectorAll(".info");
 
 const $resultDisplay = document.getElementById("result");
 
 let userChoice;
 let computerChoice;
 let result;
+
+let userChoicesAllColored = false;
+let computerChoicesAllColored = false;
+let infosAllColored = false;
 
 $possibleChoices.forEach(choice => choice.addEventListener("click", (evt) => {
     userChoice = evt.target.id;
@@ -19,6 +25,7 @@ $possibleChoices.forEach(choice => choice.addEventListener("click", (evt) => {
     generateComputerChoice();
     displayGameChoices();
     getResult();
+    checkEasterEgg();
 }))
 
 function generateComputerChoice() {
@@ -39,7 +46,14 @@ function generateComputerChoice() {
         case 4:
             computerChoice = "spock";
     }
-    document.getElementById(`pc-${computerChoice}`).classList.add("active");
+
+    for (let i = 0; i < $pcFakeBtns.length; i++) {
+        if ($pcFakeBtns[i].id === `pc-${computerChoice}`) {
+            $pcFakeBtns[i].classList.add("active");
+            break;
+        }
+    }
+
     $computerChoiceText.innerHTML = computerChoice[0].toUpperCase() + computerChoice.slice(1);
 }
 
@@ -73,10 +87,28 @@ function getResult() {
             if (computerChoice === "rock" || computerChoice === "scissors") userIsWinner = true;
     }
     
-    let $info = document.getElementById(`${userChoice}-${computerChoice}`);
-    if (!$info) $info = document.getElementById(`${computerChoice}-${userChoice}`);
-    $info.classList.add("active");
+    for (let i = 0; i < $infos.length; i++) {
+        if ($infos[i].id === `${userChoice}-${computerChoice}` || $infos[i].id === `${computerChoice}-${userChoice}`) {
+            $infos[i].classList.add("active");
+            break;
+        }
+    }
 
     result = userIsWinner ? "You won!" : "Computer won!";
     $resultDisplay.innerHTML = result;
+}
+
+function checkEasterEgg() {
+    if (!userChoicesAllColored) userChoicesAllColored = [...$possibleChoices].every(el => el.children[0].classList.contains("active"));
+
+    if (!computerChoicesAllColored) computerChoicesAllColored = [...$pcFakeBtns].every(el => el.classList.contains("active"));
+    
+    if (!infosAllColored) infosAllColored = [...$infos].every(el => el.classList.contains("active"));
+
+    let alertCondition = userChoicesAllColored && computerChoicesAllColored && infosAllColored;
+    if (alertCondition) {
+        setTimeout(() => {
+            alert("So cool! All items are grey! :D");
+        }, 500);
+    }
 }
